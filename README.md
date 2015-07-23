@@ -1,2 +1,3 @@
 # Rat
-End device program
+End device program, nowadays supported:
+  - Arduino Leonardo
