@@ -1,19 +1,25 @@
 #include "Arduino.h"
 #include "Rat.h"
 
-Rat::Rat(int maxQuantityPins, int baud)
+Rat::Rat(int idDevice, String programName, int maxQuantityPins, int baud)
 {
 	_maxQuantityPins = maxQuantityPins;
 	_baud = baud;
-
+	_idDevice = idDevice;
+	_programName = programName;
 }
 
-String Rat::Init()
+int Rat::Init()
 {
 	if (SetMemoryPins())
 	{
 		SetSerial();
 		SetPins();
+		return 0;
+	}
+	else
+	{
+		return -1;
 	}
 }
 
@@ -43,3 +49,23 @@ void Rat::SetPins()
 	}	
 }
 
+String Rat::Information()
+{
+	String info = "";
+	// Program Name
+	info += "\n Rat Program: " + _programName;
+
+	// Serial data
+	info += "\n Serial is";
+	if (Serial.available() > 0)
+	{
+		info += "available"
+	}
+	else
+	{
+		info += "not available";
+	}
+	
+	// Pins used
+	return info;
+}

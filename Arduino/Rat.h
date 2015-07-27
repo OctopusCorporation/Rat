@@ -6,16 +6,19 @@
 class Rat
 {
 public:
-	Rat(int maxQuantityPins, int baud);
+	Rat(int idDevice, String programName, int maxQuantityPins, int baud);
 	void ReadDataSerial();
 	String Information();
-	String Init();
+	int Init();
 
 private:
+	int _idDevice;
 	int _maxQuantityPins;
 	int _outputPin;
 	int _baud;
 	int * _pins;
+	String _programName;
+
 	boolean SetMemoryPins();
 	void SetSerial();
 	void SetPins();
