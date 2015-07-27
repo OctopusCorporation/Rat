@@ -52,6 +52,7 @@ void Rat::SetPins()
 String Rat::Information()
 {
 	String info = "";
+
 	// Program Name
 	info += "\n Rat Program: " + _programName;
 
@@ -67,5 +68,23 @@ String Rat::Information()
 	}
 	
 	// Pins used
+	info += "\n Pins used: ";
+	for (int i = 0; i < _maxQuantityPins; i++)
+	{
+		if (i == 0)
+		{
+			info += _pins[i];
+		}
+		else
+		{
+			info += ", " + _pins[i];
+		}
+		
+	}
+
+	info += "\n Total pins used: " + _maxQuantityPins;
+
+	// Baud
+	info += "\n Baud: " + _baud;
 	return info;
 }

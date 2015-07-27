@@ -14,7 +14,6 @@ public:
 private:
 	int _idDevice;
 	int _maxQuantityPins;
-	int _outputPin;
 	int _baud;
 	int * _pins;
 	String _programName;
